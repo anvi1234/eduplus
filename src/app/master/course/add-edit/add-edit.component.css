@@ -1,0 +1,34 @@
+.custom-file-upload {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .custom-file-label {
+    color: blue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-file-label:hover {
+   color: #0056b3;
+  }
+  
+  .custom-file-label i {
+    margin-right: 8px;
+  }
+  
+  .form-control-file {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+  

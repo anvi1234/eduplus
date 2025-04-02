@@ -1,0 +1,39 @@
+.card{
+    width: 50%;
+}
+.col-sm-6{
+    width: 50%;
+        padding: 20px;
+        margin: 0px;
+}
+p{
+    color: grey;
+}
+.col-sm-4 {
+    display: block;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    right: 0; /* Stick to the right side of the viewport */
+    width: 100%; /* Adjust width as needed */
+    background-color: #ADD8E6; /* Background color */
+    padding: 15px; /* Padding around the content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  }
+  
+  /* List Styles */
+  .list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list-group-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }

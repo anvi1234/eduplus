@@ -1,0 +1,21 @@
+.student-enroll{
+color:#2a2185
+}
+
+/* Add this CSS to your stylesheet */
+
+  .card {
+    position: relative;
+    margin-top: 20px;
+    float: left;
+    margin-left:10px
+  }
+  .container {
+    position: relative;
+  }
+  
+.card {
+    margin: 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

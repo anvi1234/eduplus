@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-12 d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" value="Add Batch" (click)="addCourse()">Add Course</button>
+  </div>
+  <div class="col-sm-3" *ngFor="let item of courseData">
+    <div class="card h-100" (click)="naviagate(item._id)">
+      <img src="{{item.courseImage}}" alt="Avatar" class="card-img-top img-fluid">
+      <div class="card-body d-flex flex-column">
+        <h4 class="card-title"><b>{{item.courseName}}</b></h4>
+        <p class="card-text">{{item.validity}}</p>
+        <div class="mt-auto">
+          <p class="course-fees">{{item.courseFees}} ₹</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

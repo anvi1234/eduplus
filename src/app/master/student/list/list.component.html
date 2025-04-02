@@ -1,0 +1,7 @@
+<div class="row" *ngIf="isAction">
+    <div class="col-sm-12 d-flex justify-content-end">
+        <button class="btn btn-primary" value="Add Batch" (click)="addStudent()">Add Student</button>
+    </div>
+</div>
+
+<app-table [columns]="columns" (selectedItemsChange)="getCheckedData($event)"  [data]="data" [actions]="actions"></app-table>

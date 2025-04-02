@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8 card">
+        <form [formGroup]="contentForm" (ngSubmit)="onSubmit()">
+          <!-- Folder List -->
+          <div formArrayName="folders">
+            <div *ngFor="let folder of folders.controls; let i = index" [formGroupName]="i" class="folder-container mb-4">
+              
+              <!-- Folder Header -->
+              <div class="d-flex justify-content-between align-items-center">
+                <h4>Folder {{ i + 1 }}</h4>
+                <button type="button" class="btn btn-danger" (click)="removeFolder(i)">Remove Folder</button>
+              </div>
+      
+              <!-- Folder Name -->
+              <div class="form-group">
+                <label for="folderName">Folder Name</label>
+                <input type="text" formControlName="folderName" class="form-control" />
+              </div>
+      
+              <!-- Videos List -->
+              <div formArrayName="videos" class="mb-3">
+                <h5>Videos</h5>
+                <div *ngFor="let video of getVideos(i).controls; let j = index" [formGroupName]="j" class="video-container mb-2">
+                  <div class="input-group">
+                    <input type="text" formControlName="name" class="form-control" placeholder="Video Name" />
+                    <div class="input-group-append">
+                      <div class="custom-file">
+                        <input type="file" (change)="onFileChange($event, i, j, 'video',folderGroup(i))" class="custom-file-input" id="inputGroupFile{{ i }}{{ j }}" accept="video/mp4,video/x-m4v,video/*" />
+                        
+                      </div>
+                    </div>
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-danger" (click)="removeVideo(i, j)">Remove Video</button>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addVideo(i)">Add Video</button>
+              </div>
+      
+              <!-- Documents List -->
+              <div formArrayName="documents" class="mb-3">
+                <h5>Documents</h5>
+                <div *ngFor="let document of getDocuments(i).controls; let k = index" [formGroupName]="k" class="document-container mb-2">
+                  <div class="input-group">
+                    <input type="text" formControlName="name" class="form-control" placeholder="Document Name" />
+                    <div class="input-group-append">
+                      <div class="custom-file">
+                        <input type="file" (change)="onFileChange($event, i, k, 'document',folderGroup(i))" class="custom-file-input" id="inputGroupFileDoc{{ i }}{{ k }}" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" />
+                        
+                      </div>
+                    </div>
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-danger" (click)="removeDocument(i, k)">Remove Document</button>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addDocument(i)">Add Document</button>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Add New Folder Button -->
+          <div class="mt-4">
+            <button type="button" class="btn btn-success" (click)="addFolder()">Add New Folder</button>
+          </div>
+      
+          <!-- Submit Button -->
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" *ngIf="isLoader">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

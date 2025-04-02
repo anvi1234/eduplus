@@ -1,0 +1,38 @@
+<!-- src/app/dynamic-table/dynamic-table.component.html -->
+<table id="customers">
+    <thead>
+      <tr><th *ngIf="actions.length == 0"></th>
+        <th *ngFor="let column of columns">{{ column.title }}</th>
+        <th *ngIf="actions.length>0">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <input type="checkbox" *ngIf="actions.length == 0"
+                 [id]="row.id"
+                 [name]="row.id"
+                 [value]="row.id"
+                 [(ngModel)]="row.selected"
+                 (change)="onCheckboxChange(row)">
+        <td *ngFor="let column of columns">{{ row[column.key] }}</td>
+         <td *ngIf="actions.length>0">
+            <ng-container *ngFor="let action of actions">
+                <span (click)="action.action(row)">
+                  <ng-container [ngSwitch]="action.title">
+                    <span *ngSwitchCase="'Edit'">
+                      <i style="color:rgb(8, 116, 211)" class="fa fa-edit"></i>
+                    </span> &nbsp;
+                    <span *ngSwitchCase="'Delete'">
+                      <i style="color:rgb(241, 105, 105)" class="fa fa-trash"></i>
+                    </span>
+                    <span *ngSwitchDefault>
+                      <!-- Default icon or content can go here -->
+                    </span>
+                    </ng-container>
+                    </span>
+                  </ng-container>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  

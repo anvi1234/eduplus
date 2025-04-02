@@ -1,1 +1,65 @@
-<p>add-edit works!</p>
+
+
+
+<div class="row">
+  <div [ngClass]="{'col-sm-5': showBehind, 'col-sm-12': !showBehind}" >
+    <div class="card">
+      <div class="container">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="batchName">Batch Name</label>
+            <input type="text" class="form-control" id="batchName" formControlName="batchName">
+            <app-error-message [control]="myForm.get('batchName')" errorMessage="Batch Name is required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="batchCode">Batch Code</label>
+            <input type="text" class="form-control" id="batchCode" formControlName="batchCode" >
+            <app-error-message [control]="myForm.get('batchCode')" errorMessage="Batch Code is required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" id="subject" formControlName="subject">
+            <app-error-message [control]="myForm.get('subject')" errorMessage="Subject is required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="batchStartDate">Batch Start Date</label>
+            <input type="date" class="form-control" id="batchStartDate" formControlName="batchDate">
+            <app-error-message [control]="myForm.get('batchDate')" errorMessage="Batch Start Date is required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6" *ngIf="isEditMode">
+            <label for="studentEnrolled">Student Enrolled</label>
+            <div class="student-enroll"  *ngIf="getUkeyByData.studentCount > 0">
+              <i class="fa fa-plus-circle" (click)="addStudent()"  aria-hidden="true"></i> {{getUkeyByData.studentCount}} Student
+            </div>
+           
+            <div class="student-enroll"  (click)="addStudent()">
+              Add Student
+            </div>
+            <app-error-message [control]="myForm.get('studentEnrolled')" errorMessage="Student Enrolled is required."></app-error-message>
+          </div>
+         
+          
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button> &nbsp; &nbsp;
+        <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7"  *ngIf="showBehind">
+    <div class="card" >
+   <app-student-list [isAction]=false (selectedItemsChange)="getEventData($event)"></app-student-list>&nbsp; &nbsp;
+   <button type="submit" class="btn btn-primary" (click)="update()">Update</button> 
+
+    </div>
+   
+</div>
+
+
+
+
+ 
+   
+

@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="container">
+      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="studentName">Student Name</label>
+          <input type="text" class="form-control" id="studentName" formControlName="studentName">
+          <app-error-message [control]="studentForm.get('studentName')" errorMessage="Student Name is required."></app-error-message>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="mobileNo">Batch Code</label>
+            <select  class="form-control" formControlName="batchId">
+              <option *ngFor="let item of batchCode" [value]="item.Value">{{item.Text}}</option>
+            </select>      
+            <app-error-message [control]="studentForm.get('batchId')" errorMessage="Batch Code is required"></app-error-message>
+          </div>
+        <div class="form-group col-sm-6">
+          <label for="mobileNo">Mobile No</label>
+          <input type="text" class="form-control" id="mobileNo" formControlName="mobileNumber">
+          <app-error-message [control]="studentForm.get('mobileNumber')" errorMessage="Mobile No is required and must be a valid 10-digit number."></app-error-message>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="email">Email Id</label>
+          <input type="text" class="form-control" id="email" (change)="emailChange($event,'email')" formControlName="email">
+          <app-error-message [control]="studentForm.get('email')" errorMessage="Email is invaild."></app-error-message>
+        </div>
+  
+        <div class="form-group col-sm-6">
+          <label for="dateOfJoining">Date of Joining</label>
+          <input type="date" class="form-control" id="dateOfJoining" formControlName="dateOfJoining">
+          <app-error-message [control]="studentForm.get('dateOfJoining')" errorMessage="Date of Joining is required."></app-error-message>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="parentName">Parent's Name</label>
+            <input type="text" class="form-control" id="parentName" formControlName="parentName">
+            <app-error-message [control]="studentForm.get('parentName')" errorMessage="Parent's Name is required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="parentMobileNumber">Parent's Mobile No</label>
+            <input type="text" class="form-control" id="parentMobileNumber" formControlName="parentMobileNumber">
+            <app-error-message [control]="studentForm.get('parentMobileNumber')" errorMessage="Parent's mobileNo required."></app-error-message>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="parentEmail">Parent's Email</label>
+            <input type="text" class="form-control" id="parentEmail" (change)="emailChange($event,'parentEmail')" formControlName="parentEmail">
+            <app-error-message [control]="studentForm.get('parentEmail')" errorMessage="Email is invaild."></app-error-message>
+          </div>
+    
+        <div class="form-group col-sm-6">
+          <label for="courseName">Course Name</label>
+          <select  class="form-control" formControlName="courseName">
+            <option>2</option>
+            <option>1</option>
+            <option>3</option>
+          </select>
+          <app-error-message [control]="studentForm.get('courseName')" errorMessage="Course Name is required."></app-error-message>
+        </div>
+  
+        <div class="form-group col-sm-6">
+          <label for="fees">Fees</label>
+          <input type="text" class="form-control" id="fees" formControlName="fees">
+          <app-error-message [control]="studentForm.get('fees')" errorMessage="Fees is required and must be a valid number."></app-error-message>
+        </div>
+  
+        <div class="form-group col-sm-6">
+          <label for="dueFees">Due Fees</label>
+          <input type="text" class="form-control" id="dueFees" formControlName="dueFees">
+          <app-error-message [control]="studentForm.get('dueFees')" errorMessage="Due Fees is required and must be a valid number."></app-error-message>
+        </div>
+    </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        &nbsp; &nbsp;
+    <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,63 @@
+<div class="container">
+<div class="row">
+   
+    <!-- Course Details Section -->
+    <div class="col-sm-6 card">
+     
+        <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="courseName">Course Name</label>
+              <p>{{ data?.courseName }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseDescription">Course Description</label>
+              <p>{{ data?.courseDescription }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseDuration">Course Duration (in hours)</label>
+              <p>{{ data?.courseDuration }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="validity">Validity</label>
+              <p>{{ data?.validity }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseFees">Course Fees</label>
+              <p>{{ data?.courseFees }} ₹</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseRating">Course Rating (0 to 5)</label>
+              <p>{{ data?.courseRating }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseCategory">Course Category</label>
+              <p>{{ data?.courseCategory }}</p>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="courseSubCategory">Course Sub-Category</label>
+              <p>{{ data?.courseSubCategory }}</p>
+            </div>
+          </div>
+       </div>
+
+   
+  
+    
+    <!-- Course Image Section -->
+    <div class="col-sm-4  d-flex justify-content-center align-items-center">
+      <img [src]="data.courseImage" alt="Course Image" class="img-fluid" width="100%"/>
+    </div>
+
+    <div class="col-sm-2  d-flex justify-content-center align-items-center">
+        <div class="sticky-sidebar">
+            <ul class="list-group">
+              <li class="list-group-item" (click)="content()">Content</li>
+              <li class="list-group-item">Item 2</li>
+              <li class="list-group-item">Item 3</li>
+              <li class="list-group-item">Item 4</li>
+            </ul>
+          </div>
+    </div>
+</div>
+  </div>
+  

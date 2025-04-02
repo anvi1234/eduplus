@@ -1,1 +1,38 @@
-<p>list works!</p>
+<div class="row">
+    <div class="col-sm-12 d-flex justify-content-end">
+        <button class="btn btn-primary" value="Add Batch" (click)="addBatch()">Add Batch</button>
+    </div>
+</div>
+
+
+<div class="row" >
+    <div class="col-sm-6 mt-1"*ngFor="let item of batchDetails">
+        <div class="card">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>{{item.batchName}}</h5>
+    
+                        <h6>{{item?.subject??'subject'}}</h6>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="dropdown">
+                        <i class='fa fa-ellipsis-v cursor'  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" (click)="edit(item)">Edit</a></li>
+                          <li><a class="dropdown-item" (click)="delete(item)">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                  
+                <div class="margin-space">
+                    <div class="col-sm-6" style="color:blue">
+                       {{item.studentCount}} Student
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
